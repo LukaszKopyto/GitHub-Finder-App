@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Logo } from '../logo/Logo'
@@ -15,25 +15,23 @@ export const Nav = styled.nav`
   background: linear-gradient(135deg, rgb(0, 127, 255), rgb(0, 59, 255));
 `
 
-class Navbar extends Component {
-  static defaultProps = {
-    title: 'GitHub Finder',
-  }
+const Navbar = ({ title }) => {
+  return (
+    <Nav>
+      <Logo>
+        <FontAwesomeIcon icon={faGithub} style={{ fontSize: 40 }} />
+        <Title>{title}</Title>
+      </Logo>
+    </Nav>
+  )
+}
 
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-  }
+Navbar.defaultProps = {
+  title: 'GitHub Finder',
+}
 
-  render() {
-    return (
-      <Nav>
-        <Logo>
-          <FontAwesomeIcon icon={faGithub} style={{ fontSize: 40 }} />
-          <Title>{this.props.title}</Title>
-        </Logo>
-      </Nav>
-    )
-  }
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
 }
 
 export default Navbar
