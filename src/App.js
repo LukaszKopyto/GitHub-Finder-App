@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import './App.css'
 import Navbar from './component/navbar/Navbar'
-import UserItem from './component/users/UserItem'
+import Users from './component/users/Users'
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -20,7 +20,7 @@ class App extends Component {
       <>
         <GlobalStyle />
         <Navbar />
-        <UserItem />
+        <Users />
       </>
     )
   }
