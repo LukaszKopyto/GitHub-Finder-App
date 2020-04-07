@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { colors } from '../../utils/colors'
 
-const Button = styled.a`
+const SearchButton = styled.button`
   background: ${colors.primary};
   padding: 10px 30px;
   display: block;
-  width: ${(props) => props.width || null};
+  width: 80vw;
   color: ${colors.white};
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
@@ -19,4 +19,4 @@ const Button = styled.a`
     box-shadow: 0px 5px 10px 1px rgba(0, 59, 255, 0.6);
   }
 `
-export default Button
+export default SearchButton
