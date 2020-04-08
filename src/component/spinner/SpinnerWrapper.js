@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const SpinnerWrapper = styled.img`
-  margin: 50vh auto;
+  margin: 200px auto;
   display: block;
 `
 
