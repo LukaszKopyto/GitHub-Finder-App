@@ -5,6 +5,7 @@ export const Title = styled.h1`
   font-size: 25px;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  font-weigth: 800;
+  font-weight: 800;
   color: ${colors.white};
+  text-decoration: none;
 `

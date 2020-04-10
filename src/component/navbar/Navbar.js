@@ -5,6 +5,8 @@ import { Logo } from '../logo/Logo'
 import { Title } from '../title/Title'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { Link } from 'react-router-dom'
+import MenuList from './MenuList'
 
 export const Nav = styled.nav`
   display: flex;
@@ -18,10 +20,20 @@ export const Nav = styled.nav`
 const Navbar = ({ title }) => {
   return (
     <Nav>
-      <Logo>
-        <FontAwesomeIcon icon={faGithub} style={{ fontSize: 40 }} />
-        <Title>{title}</Title>
-      </Logo>
+      <Link to='/' style={{ textDecoration: 'none' }}>
+        <Logo>
+          <FontAwesomeIcon icon={faGithub} style={{ fontSize: 40 }} />
+          <Title>{title}</Title>
+        </Logo>
+      </Link>
+      <MenuList>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+      </MenuList>
     </Nav>
   )
 }
