@@ -13,7 +13,7 @@ const SearchButton = styled.button`
   text-decoration: none;
   text-align: center;
   font-size: 15px;
-  margin: ${(props) => (props.second ? '-10px auto' : '20px auto')};
+  margin: ${(props) => (props.second ? '-5px auto' : '20px auto')};
   border-radius: 5px;
   &:hover {
     box-shadow: 0px 5px 10px 1px rgba(0, 59, 255, 0.6);

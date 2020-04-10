@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { colors } from '../../utils/colors'
+import { Link } from 'react-router-dom'
 
-const Button = styled.a`
+const Button = styled(Link)`
   background: ${colors.primary};
   padding: 10px 30px;
   display: block;

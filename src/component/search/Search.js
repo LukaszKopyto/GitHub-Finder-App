@@ -1,39 +1,39 @@
-import React, { Component } from 'react';
-import SearchInput from './SearchInput';
-import SearchButton from './searchButton';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import SearchInput from './SearchInput'
+import SearchButton from './SearchButton'
+import PropTypes from 'prop-types'
 
 class Search extends Component {
   state = {
     text: '',
-  };
+  }
 
   static propTypes = {
     searchUser: PropTypes.func.isRequired,
     clearUsers: PropTypes.func.isRequired,
     showClear: PropTypes.bool.isRequired,
     setAlert: PropTypes.func.isRequired,
-  };
+  }
 
   handleOnChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     this.setState({
       [name]: value,
-    });
-  };
+    })
+  }
 
   handleOnSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (this.state.text === '') {
-      this.props.setAlert('Please enter something', 'light');
+      this.props.setAlert('Please enter something', 'light')
     } else {
-      this.props.searchUser(this.state.text);
-      this.setState({ text: '' });
+      this.props.searchUser(this.state.text)
+      this.setState({ text: '' })
     }
-  };
+  }
 
   render() {
-    const { showClear, clearUsers } = this.props;
+    const { showClear, clearUsers } = this.props
     return (
       <>
         <form onSubmit={this.handleOnSubmit}>
@@ -54,8 +54,8 @@ class Search extends Component {
           </SearchButton>
         )}
       </>
-    );
+    )
   }
 }
 
-export default Search;
+export default Search

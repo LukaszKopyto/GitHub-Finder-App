@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components'
 import './App.css'
 import Navbar from './component/navbar/Navbar'
 import Users from './component/users/Users'
+import User from './component/users/User'
 import axios from 'axios'
 import Search from './component/search/Search'
 import Alert from './component/alert/Alert'
@@ -23,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
 class App extends Component {
   state = {
     users: [],
+    user: {},
     loading: false,
     alert: null,
   }
@@ -39,6 +41,18 @@ class App extends Component {
     })
   }
 
+  //Get single Github user
+  getUser = async (username) => {
+    this.setState({ loading: true })
+    const resp = await axios.get(
+      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    )
+    this.setState({
+      user: resp.data,
+      loading: false,
+    })
+  }
+
   //Clear users from state
   clearUsers = () => this.setState({ users: [], loading: false })
 
@@ -51,7 +65,7 @@ class App extends Component {
   }
 
   render() {
-    const { users, loading, alert } = this.state
+    const { users, user, loading, alert } = this.state
     return (
       <Router>
         <GlobalStyle />
@@ -74,6 +88,17 @@ class App extends Component {
             )}
           />
           <Route path='/about' component={About} />
+          <Route
+            path='/user/:login'
+            render={(props) => (
+              <User
+                {...props}
+                getUser={this.getUser}
+                user={user}
+                loading={loading}
+              />
+            )}
+          />
         </Switch>
       </Router>
     )

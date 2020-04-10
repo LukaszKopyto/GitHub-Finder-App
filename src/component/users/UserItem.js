@@ -10,7 +10,7 @@ const UserItem = ({ user: { login, avatar_url, html_url } }) => {
     <CardWrapper>
       <Image src={avatar_url} alt={login} />
       <UserTitle>{login}</UserTitle>
-      <Button href={html_url}>More</Button>
+      <Button to={`/user/${login}`}>More</Button>
     </CardWrapper>
   )
 }
