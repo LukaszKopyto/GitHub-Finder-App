@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useContext } from 'react'
 import Spinner from '../spinner/Spinner'
 import Button from '../button/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,8 +7,13 @@ import { Image } from '../images/Images'
 import UserWrapper from './UserWrapper'
 import Badge from '../badge/badge'
 import Repo from '../repos/Repo'
+import GithubContext from '../../context/github/githubContext'
 
-const User = ({ user, getUser, getUserRepos, match, loading, repos }) => {
+const User = ({ match }) => {
+  const githubContext = useContext(GithubContext)
+
+  const { user, getUser, loading, repos, getUserRepos } = githubContext
+
   useEffect(() => {
     getUser(match.params.login)
     getUserRepos(match.params.login)
@@ -104,13 +108,6 @@ const User = ({ user, getUser, getUserRepos, match, loading, repos }) => {
       <Repo repos={repos} />
     </>
   )
-}
-
-User.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired,
-  getUser: PropTypes.func.isRequired,
-  getUserRepos: PropTypes.func.isRequired,
 }
 
 export default User

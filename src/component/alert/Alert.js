@@ -1,9 +1,14 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import ErrorInfo from './ErrorInfo';
+import React, { useContext } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import ErrorInfo from './ErrorInfo'
+import AlertContext from '../../context/alert/alertContext'
 
-const Alert = ({ alert }) => {
+const Alert = () => {
+  const alertContext = useContext(AlertContext)
+
+  const { alert } = alertContext
+
   return (
     alert !== null && (
       <ErrorInfo>
@@ -15,7 +20,7 @@ const Alert = ({ alert }) => {
         {alert.msg}
       </ErrorInfo>
     )
-  );
-};
+  )
+}
 
-export default Alert;
+export default Alert
