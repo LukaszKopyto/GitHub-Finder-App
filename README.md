@@ -31,7 +31,8 @@ This project was bootstrapped with Create React App.
 
 - React, based on:
   - Hooks,
-  - Context API along with the useContext and useReducer hooks for state management
+  - Context API along with the useContext and useReducer hooks for state management,
+  - propTypes
 - React-router
 - Axios
 - Styled-components
@@ -61,6 +62,8 @@ It correctly bundles React in production mode and optimizes the build for the be
   - basic account information
   - number of: public repositories, public gist, followers and followings
   - displays the last five repositories
+- loading animations while fetch data from API
+- error handling when submitting an empty query
 
 ## Inspiration
 
