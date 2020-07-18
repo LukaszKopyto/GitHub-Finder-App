@@ -90,7 +90,12 @@ const User = ({ match }) => {
               {login && (
                 <>
                   <strong>Website: </strong>
-                  <a href={blog} style={{ textDecoration: 'none' }}>
+                  <a
+                    href={`http://${blog}`}
+                    style={{ textDecoration: 'none' }}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
                     {blog}
                   </a>
                 </>
